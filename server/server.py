@@ -9,7 +9,6 @@ CORS(app)  # Add CORS to the Flask app
 @app.route("/")
 def index():
     return Response("Hello World!")
-    return Response("Hello World!")
 
 
 if __name__ == "__main__":
