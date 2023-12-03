@@ -4,6 +4,7 @@ import emag_scraper
 import json
 
 app = Flask(__name__)
+CORS(app)  # Add CORS to the Flask app
 
 
 @app.route("/", methods=["GET"])
