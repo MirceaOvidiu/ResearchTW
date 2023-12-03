@@ -9,7 +9,7 @@ import selenium.common.exceptions
 
 import time
 
-base_rating = 4.3
+base_rating = 4.85
 
 
 def choose_category():
@@ -44,7 +44,7 @@ def scrape(url):
 
     products_list = []
 
-    for page in range(42, total_pages + 1):
+    for page in range(1, total_pages + 1):
         print(f"====================PAGE {page}=====================")
         driver.get(url + "p" + str(page) + "/c")
         time.sleep(3)
