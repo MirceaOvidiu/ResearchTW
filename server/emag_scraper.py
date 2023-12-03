@@ -9,7 +9,7 @@ import selenium.common.exceptions
 
 import time
 
-base_rating = 4.75
+base_rating = 4.3
 
 
 def choose_category():
@@ -28,8 +28,7 @@ def choose_category():
 
 
 def scrape(url):
-    service = Service(executable_path="chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
+    driver = webdriver.Chrome(keep_alive=True)
 
     options = Options()
     options.add_argument("--incognito")
@@ -43,13 +42,9 @@ def scrape(url):
     total_prod = int(prod[1].get_attribute("innerHTML"))
     total_pages = round(total_prod / prod_one_page)
 
-    scrape_each_page(driver, url, total_pages, prod_one_page)
+    products_list = []
 
-    time.sleep(10)
-
-
-def scrape_each_page(driver, url, total_pages, prod_one_page):
-    for page in range(1, total_pages + 1):
+    for page in range(42, total_pages + 1):
         print(f"====================PAGE {page}=====================")
         driver.get(url + "p" + str(page) + "/c")
         time.sleep(3)
@@ -60,20 +55,42 @@ def scrape_each_page(driver, url, total_pages, prod_one_page):
                     products[i].find_element(By.CLASS_NAME, "average-rating").text
                 )
                 if product_rating - base_rating >= 0:
-                    product_name = products[i].find_element(
-                        By.CLASS_NAME, "card-v2-title"
+                    product_name = (
+                        products[i].find_element(By.CLASS_NAME, "card-v2-title").text
                     )
-                    if "RESIGILAT" not in product_name.text:
-                        product_price = products[i].find_element(
-                            By.CLASS_NAME, "product-new-price"
+                    if "RESIGILAT" not in product_name:
+                        product_price = (
+                            products[i]
+                            .find_element(By.CLASS_NAME, "product-new-price")
+                            .text
                         )
-                        print(
-                            f"{product_name.text} - {product_price.text} - {product_rating}"
+                        product_link = (
+                            products[i]
+                            .find_element(By.CLASS_NAME, "card-v2-info")
+                            .find_element(By.TAG_NAME, "a")
+                            .get_attribute("href")
+                        )
+                        product_img = (
+                            products[i]
+                            .find_element(By.CLASS_NAME, "card-v2-thumb-inner")
+                            .find_element(By.TAG_NAME, "img")
+                            .get_attribute("src")
+                        )
+                        products_list.append(
+                            {
+                                "name": product_name,
+                                "price": product_price,
+                                "rating": product_rating,
+                                "link": product_link,
+                                "img": product_img,
+                            }
                         )
             except selenium.common.exceptions.NoSuchElementException:
                 pass
             except IndexError:
                 break
+
+    return products_list
 
 
 if __name__ == "__main__":

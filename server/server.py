@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, request, url_for, Response
+
+import emag_scraper
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return Response("Hello World!")
 
 
 if __name__ == "__main__":
