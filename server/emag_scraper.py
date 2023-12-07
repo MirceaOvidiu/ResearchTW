@@ -1,15 +1,11 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import selenium.common.exceptions
 
-import time
-
-base_rating = 4.85
+base_rating = 4.8
 
 
 def choose_category():
@@ -17,11 +13,11 @@ def choose_category():
     if category == "phones":
         return "https://www.emag.ro/telefoane-mobile/"
     elif category == "laptops":
-        return "https://www.emag.ro/laptopuri/c"
+        return "https://www.emag.ro/laptopuri/"
     elif category == "tvs":
-        return "https://www.emag.ro/televizoare/c"
+        return "https://www.emag.ro/televizoare/"
     elif category == "headphones":
-        return "https://www.emag.ro/casti-pc/c"
+        return "https://www.emag.ro/casti-pc/"
     else:
         print("Invalid category")
         return None
@@ -47,49 +43,47 @@ def scrape(url):
     for page in range(1, total_pages + 1):
         print(f"====================PAGE {page}=====================")
         driver.get(url + "p" + str(page) + "/c")
-        time.sleep(3)
-        products = driver.find_elements(By.CLASS_NAME, "card-v2")
-        for i in range(0, prod_one_page):
-            try:
-                product_rating = float(
-                    products[i].find_element(By.CLASS_NAME, "average-rating").text
-                )
+        try:
+            WebDriverWait(driver, 2).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "average-rating"))
+            )
+
+            rated_products = driver.find_elements(By.CLASS_NAME, "average-rating")
+            for product in rated_products:
+                product_rating = float(product.text)
                 if product_rating - base_rating >= 0:
-                    product_name = (
-                        products[i].find_element(By.CLASS_NAME, "card-v2-title").text
-                    )
-                    if "RESIGILAT" not in product_name:
-                        product_price = (
-                            products[i]
-                            .find_element(By.CLASS_NAME, "product-new-price")
-                            .text
-                        )
-                        product_link = (
-                            products[i]
-                            .find_element(By.CLASS_NAME, "card-v2-info")
-                            .find_element(By.TAG_NAME, "a")
-                            .get_attribute("href")
-                        )
-                        product_img = (
-                            products[i]
-                            .find_element(By.CLASS_NAME, "card-v2-thumb-inner")
-                            .find_element(By.TAG_NAME, "img")
-                            .get_attribute("src")
-                        )
+                    try:
+                        product_name = product.find_element(
+                            By.XPATH, "../../../../h2[@class='card-v2-title-wrapper']/a"
+                        ).text
+                        product_link = product.find_element(
+                            By.XPATH,
+                            "../../../../../a",
+                        ).get_attribute("href")
+                        product_image = product.find_element(
+                            By.XPATH,
+                            "../../../../../a/div[@class='card-v2-thumb-inner']/img",
+                        ).get_attribute("src")
+                        product_price = product.find_element(
+                            By.XPATH,
+                            "../../../../../../..//p[@class='product-new-price']",
+                        ).text.split(" ")[0]
+
                         products_list.append(
                             {
                                 "name": product_name,
                                 "price": product_price,
                                 "rating": product_rating,
                                 "link": product_link,
-                                "img": product_img,
+                                "img": product_image,
                             }
                         )
-            except selenium.common.exceptions.NoSuchElementException:
-                pass
-            except IndexError:
-                break
-
+                    except selenium.common.exceptions.NoSuchElementException:
+                        continue
+        except selenium.common.exceptions.TimeoutException:
+            print(f"Page {page} timed out")
+            continue
+    print(f"Found {len(products_list)} products")
     return products_list
 
 
