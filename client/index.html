@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Hello</h1>
-    <script src="./main.js"></script>
-  </body>
+<head>
+  <link rel="stylesheet" href="./style/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./main.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Welcome to EmagWizard</h1>
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">Scrape for?</button>
+    <div class="dropdown-content">
+      <a href="#" onclick="selectCategory('Phones')">Phones</a>
+      <a href="#" onclick="selectCategory('Laptops')">Laptops</a>
+      <a href="#" onclick="selectCategory('TVs')">TVs</a>
+      <a href="#" onclick="selectCategory('Headphones')">Headphones</a>
+    </div>
+  </div>
+
+  <div id="chosenCategory"></div>
+
+  <div id="submittedOptions"></div>
+
+  <button type="submit" onclick="submitOption()">Start scraping</button>
+</body>
 </html>
