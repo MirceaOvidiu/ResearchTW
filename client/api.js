@@ -43,11 +43,8 @@ button.addEventListener("click", () => {
 const sort = (data) => {
   let result = [];
   data.map((element) => {
-    console.log(element.price);
-    const price = parseInt(element.price);
-    console.log(price, typeof price);
+    const price = parseFloat(element.price);
     if (price <= max_price) {
-      console.log(price);
       result.push(element);
     }
   });
