@@ -3,14 +3,16 @@ const select = document.querySelector("select");
 const input_rating = document.querySelector(".slider");
 const input_price = document.querySelector(".slider_pret");
 const span_rating = document.querySelector(".rating");
-const result = document.querySelector(".result");
 const span_price = document.querySelector(".price");
+const main = document.querySelector("main");
+const loading = document.querySelector("#loading");
 
 // !values
 
 let rating;
 let option;
 let max_price;
+const page = main.innerHTML;
 
 input_rating.addEventListener("change", () => {
   rating = input_rating.value;
@@ -27,6 +29,8 @@ input_price.addEventListener("change", () => {
 });
 
 button.addEventListener("click", () => {
+  main.style.display = "none";
+  loading.style.display = "flex";
   axios
     .post("http://127.0.0.1:5000/search", {
       category: option,
@@ -43,6 +47,7 @@ button.addEventListener("click", () => {
 const sort = (data) => {
   let result = [];
   data.map((element) => {
+    element.price = element.price.replace(".", "");
     const price = parseFloat(element.price);
     if (price <= max_price) {
       result.push(element);
@@ -57,6 +62,7 @@ const sort = (data) => {
 const putInHtml = (data) => {
   data = sort(data);
 
+  const result = document.querySelector(".result");
   data.forEach((element) => {
     result.innerHTML += `
     <div class="card">
@@ -73,4 +79,6 @@ const putInHtml = (data) => {
     </div>
     `;
   });
+  loading.style.display = "none";
+  main.style.display = "block";
 };
