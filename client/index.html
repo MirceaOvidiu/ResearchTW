@@ -31,10 +31,25 @@
           <option value="aspiratoare">Vacuum Cleaners</option>
           <option value="espressoare">Espresso Machines</option>
         </select>
+
+        <div class="rating_slider">
+          <label for="slider">Choose your rating:</label>
+          <p class="rating"></p>
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value="1"
+            step="0.1"
+            class="slider"
+          />
+        </div>
       </div>
       <button>Start scrapping</button>
     </section>
 
-    <script src="./main.js"></script>
+    <section class="result"></section>
+
+    <script src="./api.js"></script>
   </body>
 </html>
