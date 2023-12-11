@@ -125,4 +125,28 @@ p {
   font-size: 2rem;
   color: #b000d3;
   font-weight: bold;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#loading {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#loading::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 0.3rem solid #b000d3;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
 }/*# sourceMappingURL=style.css.map */
