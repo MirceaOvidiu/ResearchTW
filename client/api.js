@@ -6,6 +6,7 @@ const span_rating = document.querySelector(".rating");
 const span_price = document.querySelector(".price");
 const main = document.querySelector("main");
 const loading = document.querySelector("#loading");
+const result = document.querySelector(".result");
 
 // !values
 
@@ -31,6 +32,8 @@ input_price.addEventListener("change", () => {
 button.addEventListener("click", () => {
   main.style.display = "none";
   loading.style.display = "flex";
+  result.innerHTML = "";
+  result;
   axios
     .post("http://127.0.0.1:5000/search", {
       category: option,
@@ -62,7 +65,6 @@ const sort = (data) => {
 const putInHtml = (data) => {
   data = sort(data);
 
-  const result = document.querySelector(".result");
   data.forEach((element) => {
     result.innerHTML += `
     <div class="card">
