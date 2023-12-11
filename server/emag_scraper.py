@@ -64,10 +64,14 @@ def scrape(url, base_rating=4.5):
                             By.XPATH,
                             "../../../../../a/div[@class='card-v2-thumb-inner']/img",
                         ).get_attribute("src")
-                        product_price = product.find_element(
-                            By.XPATH,
-                            "../../../../../../..//p[@class='product-new-price']",
-                        ).text.split(" ")[0]
+                        product_price = "".join(
+                            product.find_element(
+                                By.XPATH,
+                                "../../../../../../..//p[@class='product-new-price']",
+                            )
+                            .text.split(" ")[0]
+                            .split(".")
+                        )
 
                         products_list.append(
                             {
