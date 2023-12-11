@@ -15,10 +15,11 @@ def hello():
 def index():
     # Get the category from the query string
     category = request.json["category"]
+    rating = float(request.json["rating"])
     print(category)
 
     url = "https://www.emag.ro/search/" + category + "/"
-    products = emag_scraper.scrape(url)
+    products = emag_scraper.scrape(url, rating)
     return Response(json.dumps(products), mimetype="application/json")
 
 

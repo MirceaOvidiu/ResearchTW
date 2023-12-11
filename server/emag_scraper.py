@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import selenium.common.exceptions
 
-base_rating = 4.8
+
 
 
 # this is just for testing
@@ -25,7 +25,7 @@ def choose_category():
 
 
 # main scraping function
-def scrape(url):
+def scrape(url, base_rating=4.5):
     driver = webdriver.Chrome(keep_alive=True)
 
     options = Options()

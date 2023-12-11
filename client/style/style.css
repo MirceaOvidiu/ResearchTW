@@ -71,4 +71,16 @@ section button:hover {
   cursor: pointer;
   background-color: #f1f1f1;
   color: #b000d3;
+}
+section .rating_slider {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+section .rating_slider p {
+  font-size: 2rem;
+  color: #b000d3;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
