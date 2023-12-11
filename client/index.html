@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <title>EmagWizard</title>
   </head>
+
   <body>
     <h1>Welcome to EmagWizard</h1>
 
@@ -31,19 +31,26 @@
           <option value="aspiratoare">Vacuum Cleaners</option>
           <option value="espressoare">Espresso Machines</option>
         </select>
+      </div>
 
-        <div class="rating_slider">
-          <label for="slider">Choose your rating:</label>
-          <p class="rating"></p>
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value="1"
-            step="0.1"
-            class="slider"
-          />
-        </div>
+      <div class="rating_slider">
+        <label for="slider">Choose your rating:</label>
+        <p class="rating"></p>
+        <input
+          type="range"
+          min="1"
+          max="5"
+          value="1"
+          step="0.1"
+          class="slider"
+        />
+      </div>
+
+      <div class="price_slider">
+        <label for="price">Choose your price:</label>
+        <p class="price"></p>
+
+        <input type="range" min="0" max="15000" step="10" class="slider_pret" />
       </div>
       <button>Start scrapping</button>
     </section>
