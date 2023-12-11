@@ -6,8 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import selenium.common.exceptions
 
 
-
-
 # this is just for testing
 def choose_category():
     category = input("Choose a category: ")

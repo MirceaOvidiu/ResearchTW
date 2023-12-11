@@ -42,11 +42,13 @@ const putInHtml = (data) => {
   data.forEach((element) => {
     result.innerHTML += `
     <div class="card">
+    <a href="${element.link}" target="_blank">
       <img src="${element.img}" alt="Avatar" style="width:100%">
+    </a>
       <div class="container">
         <h4><b>${element.name}</b></h4>
-        <p>${element.category}</p>
-        <p>${element.rating}</p>
+        <p>${element.price} Lei</p>
+        <p>Rating: ${element.rating}/5</p>
       </div>
     </div>
     `;

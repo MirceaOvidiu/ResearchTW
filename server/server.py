@@ -5,11 +5,13 @@ import emag_scraper
 import json
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
+
 
 @app.route("/", methods=["GET"])
 def hello():
     return "Hello World!"
+
 
 @app.route("/search", methods=["POST"])
 def index():
