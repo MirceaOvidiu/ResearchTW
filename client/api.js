@@ -43,12 +43,15 @@ button.addEventListener("click", () => {
 const sort = (data) => {
   let result = [];
   data.map((element) => {
+    console.log(element.price);
     const price = parseInt(element.price);
+    console.log(price, typeof price);
     if (price <= max_price) {
       console.log(price);
       result.push(element);
     }
   });
+
   number = document.querySelector(".result_number");
   number.innerHTML = result.length + " products found";
   return result;
