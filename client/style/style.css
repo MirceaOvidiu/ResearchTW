@@ -28,7 +28,7 @@ section {
   border: 2px solid #b000d3;
   border-radius: 1rem;
   -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -83,6 +83,12 @@ section .rating_slider p {
   font-weight: bold;
 }
 
+p {
+  font-size: 2rem;
+  color: #b000d3;
+  font-weight: bold;
+}
+
 .result {
   margin: 3rem auto;
   width: 90%;
@@ -100,4 +106,29 @@ section .rating_slider p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}/*# sourceMappingURL=style.css.map */
+}
+
+p {
+  font-size: 2rem;
+  color: #b000d3;
+  font-weight: bold;
+}
+
+.result {
+  margin: 3rem auto;
+  width: 90%;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #b000d3;
+  font-weight: bold;
+}
+.result .card {
+  background-color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} /*# sourceMappingURL=style.css.map */
