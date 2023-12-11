@@ -11,25 +11,7 @@
   <body>
     <h1>Welcome to EmagWizard</h1>
 
-    <!--    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown()">Scrape for?</button>
-      <div class="dropdown-content">
-        <a href="#" onclick="selectCategory('Phones')">Phones</a>
-        <a href="#" onclick="selectCategory('Laptops')">Laptops</a>
-        <a href="#" onclick="selectCategory('TVs')">TVs</a>
-        <a href="#" onclick="selectCategory('Headphones')">Headphones</a>
-      </div>
-    </div>
-    
-
-    <div id="chosenCategory"></div>
-
-    <div id="submittedOptions"></div>
-
-    <button type="submit" onclick="submitOption()">Start scraping</button>
-    -->
-
-    <form id="form" action="localhost:3000/client" method="post">
+    <section>
       <div class="dropdown">
         <label for="categories">Scrape for:</label>
         <select name="categories" class="categories" id="areaSelect">
@@ -51,9 +33,9 @@
           <option value="EspressoMachines">Espresso Machines</option>
         </select>
       </div>
-      <input type="submit" id="submitButton" , value="Start scraping" />
-    </form>
-    <p id="submitOption"></p>
+      <button>Start scrapping</button>
+    </section>
+
     <script src="./main.js"></script>
   </body>
 </html>

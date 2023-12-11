@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 62.5%; /*1rem = 10px*/
+  font-size: 62.5%;
 }
 
 body {
@@ -13,8 +13,6 @@ body {
   background-image: url(./bg.jpg);
   color: #ffffff;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
 h1 {
@@ -22,127 +20,55 @@ h1 {
   font-size: 3.6rem;
   margin: 3rem 0;
 }
-/*
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px;
-}
 
-.dropbtn {
-  background-color: #382bb1;
-  color: white;
-  padding: 12px 20px;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px;
-  width: 100%; 
-}
-
-.dropdown-content a {
-  color: #2c3e50;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #6b0679;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-button {
-  background-color: #382bb1;
-  color: white;
-  padding: 12px 20px;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #671b99;
-}
-*/
-/*Cristi*/
-#form {
+section {
   margin: 0 auto;
   width: 30%;
   padding: 2rem 0;
   border: 2px solid #b000d3;
   border-radius: 1rem;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
 }
-
-#form label {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #b000d3;
-  font-weight: bold;
-}
-
-.dropdown {
+section .dropdown {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-
-select {
+section .dropdown label {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #b000d3;
+  font-weight: bold;
+}
+section .dropdown select {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #b000d3;
-  border: #b000d3 solid 2px;
+  border: 2px solid #b000d3;
   border-radius: 1rem;
   font-weight: bold;
-}
-
-
-select:focus {
   outline: none;
 }
-
-#submitButton {
+section button {
   font-size: 2rem;
   margin: 0 auto;
-  padding: 0.5rem 0;
-  border: none;
-  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  color: #f1f1f1;
   background-color: #b000d3;
-  color: #ffffff;
   font-weight: bold;
-  width: 40%;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
 }
-
-#submitButton:hover {
-  background-color: #a000c0;
-}
-
-p {
-  font-size: 2rem;
-  margin: 0 auto;
-  padding: 0.5rem 2rem;
-  color: #ffffff;
-  font-weight: bold;
-}
+section button:hover {
+  cursor: pointer;
+  background-color: #f1f1f1;
+  color: #b000d3;
+}/*# sourceMappingURL=style.css.map */
