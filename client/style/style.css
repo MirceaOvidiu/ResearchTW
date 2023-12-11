@@ -28,7 +28,7 @@ section {
   border: 2px solid #b000d3;
   border-radius: 1rem;
   -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -58,7 +58,7 @@ section button {
   margin: 0 auto;
   margin-top: 1rem;
   padding: 1rem;
-  color: #f1f1f1;
+  color: #ffffff;
   background-color: #b000d3;
   font-weight: bold;
   border-radius: 1rem;
@@ -67,7 +67,7 @@ section button {
 }
 section button:hover {
   cursor: pointer;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   color: #b000d3;
 }
 section .rating_slider {
@@ -83,12 +83,6 @@ section .rating_slider p {
   font-weight: bold;
 }
 
-p {
-  font-size: 2rem;
-  color: #b000d3;
-  font-weight: bold;
-}
-
 .result {
   margin: 3rem auto;
   width: 90%;
@@ -107,28 +101,28 @@ p {
   flex-direction: column;
   justify-content: space-between;
 }
+.result .card .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.result .card .container a {
+  text-decoration: none;
+  color: #b000d3;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.result .card .container a:hover {
+  text-decoration: underline;
+}
+.result h4 {
+  font-size: 1.8rem;
+}
 
 p {
   font-size: 2rem;
   color: #b000d3;
   font-weight: bold;
-}
-
-.result {
-  margin: 3rem auto;
-  width: 90%;
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #b000d3;
-  font-weight: bold;
-}
-.result .card {
-  background-color: #fff;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

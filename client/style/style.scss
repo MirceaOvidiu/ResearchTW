@@ -58,7 +58,7 @@ section {
     margin-top: 1rem;
     padding: 1rem;
 
-    color: #f1f1f1;
+    color: #ffffff;
     background-color: #b000d3;
     font-weight: bold;
     border-radius: 1rem;
@@ -66,7 +66,7 @@ section {
     border: none;
     &:hover {
       cursor: pointer;
-      background-color: #f1f1f1;
+      background-color: #ffffff;
       color: #b000d3;
     }
   }
@@ -104,6 +104,28 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        color: #b000d3;
+        font-weight: bold;
+        font-size: 2rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  h4 {
+    font-size: 1.8rem;
   }
 }
 p {

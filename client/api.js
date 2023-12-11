@@ -49,6 +49,8 @@ const sort = (data) => {
       result.push(element);
     }
   });
+  number = document.querySelector(".result_number");
+  number.innerHTML = result.length + " products found";
   return result;
 };
 
@@ -62,9 +64,11 @@ const putInHtml = (data) => {
       <img src="${element.img}" alt="Avatar" style="width:100%">
     </a>
       <div class="container">
-        <h4><b>${element.name}</b></h4>
+        <a href="${element.link}" target="_blank">
+          <h4>${element.name}</h4>
+        </a>
         <p>${element.price} Lei</p>
-        <p>Rating: ${element.rating}/5</p>
+        <p>Rating: ${element.rating}/5 ★</p>
       </div>
     </div>
     `;
