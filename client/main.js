@@ -1,3 +1,5 @@
+/*const { text } = require("body-parser");
+
 const getResearchPapers = async () => {
   const res = await axios.get("http://localhost:5000/");
   console.log(res.data);
@@ -6,7 +8,7 @@ const getResearchPapers = async () => {
 
 getResearchPapers();
 
-let selectedCategory = '';
+let selectedCategory = "";
 
 const selectedOptions = [];
 
@@ -16,7 +18,7 @@ function selectCategory(category) {
 }
 
 function displaySelectedCategory() {
-  const chosenCategoryDiv = document.getElementById('chosenCategory');
+  const chosenCategoryDiv = document.getElementById("chosenCategory");
   chosenCategoryDiv.textContent = `Chosen Category: ${selectedCategory}`;
 }
 
@@ -27,35 +29,37 @@ function submitOption() {
     selectedOptions.push(selectedCategory);
 
     // Store the updated selectedOptions array in localStorage
-    localStorage.setItem('selectedOptions', JSON.stringify(selectedOptions));
+    localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
   } else {
     console.log("Please select a category before submitting.");
   }
 }
 
-
 function displaySubmittedOptions() {
-  const submittedOptionsDiv = document.getElementById('submittedOptions');
+  const submittedOptionsDiv = document.getElementById("submittedOptions");
 
   // Retrieve the selectedOptions array from localStorage
-  const storedOptions = JSON.parse(localStorage.getItem('selectedOptions')) || [];
+  const storedOptions =
+    JSON.parse(localStorage.getItem("selectedOptions")) || [];
 
-  submittedOptionsDiv.textContent = `Selected Options: ${storedOptions.join(', ')}`;
+  submittedOptionsDiv.textContent = `Selected Options: ${storedOptions.join(
+    ", "
+  )}`;
 }
 
 function toggleDropdown() {
-  const dropdownContent = document.querySelector('.dropdown-content');
-  dropdownContent.classList.toggle('show');
+  const dropdownContent = document.querySelector(".dropdown-content");
+  dropdownContent.classList.toggle("show");
 }
 
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    const dropdowns = document.getElementsByClassName('dropdown-content');
+window.onclick = function (event) {
+  if (!event.target.matches(".dropbtn")) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
     for (const dropdown of dropdowns) {
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
+      if (dropdown.classList.contains("show")) {
+        dropdown.classList.remove("show");
       }
     }
   }
-}
+};
+*/

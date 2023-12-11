@@ -8,6 +8,7 @@ import selenium.common.exceptions
 base_rating = 4.8
 
 
+# this is just for testing
 def choose_category():
     category = input("Choose a category: ")
     if category == "phones":
@@ -23,6 +24,7 @@ def choose_category():
         return None
 
 
+# main scraping function
 def scrape(url):
     driver = webdriver.Chrome(keep_alive=True)
 
@@ -42,7 +44,7 @@ def scrape(url):
 
     for page in range(1, total_pages + 1):
         print(f"====================PAGE {page}=====================")
-        driver.get(url + "p" + str(page) + "/c")
+        driver.get(url + "p" + str(page) + "/")
         try:
             WebDriverWait(driver, 2).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "average-rating"))
