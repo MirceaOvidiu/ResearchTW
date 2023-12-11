@@ -1,76 +1,74 @@
-body, h1, h2, p, button {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-image: url(./bg.jpg);
   color: #ffffff;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
 h1 {
   color: #b000d3;
-  margin-top: 30px;
+  font-size: 3.6rem;
+  margin: 3rem 0;
 }
+section {
+  margin: 0 auto;
+  width: 30%;
+  padding: 2rem 0;
+  border: 2px solid #b000d3;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px;
-}
+  .dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 
-.dropbtn {
-  background-color: #382bb1;
-  color: white;
-  padding: 12px 20px;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
+    label {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #b000d3;
+      font-weight: bold;
+    }
+    select {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #b000d3;
+      border: 2px solid #b000d3;
+      border-radius: 1rem;
+      font-weight: bold;
+      outline: none;
+    }
+  }
+  button {
+    font-size: 2rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px;
-  width: 100%; /* Set the width to 100% to match the button's width */
-}
-
-.dropdown-content a {
-  color: #2c3e50;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #6b0679;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-button {
-  background-color: #382bb1;
-  color: white;
-  padding: 12px 20px; 
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #671b99;
+    color: #f1f1f1;
+    background-color: #b000d3;
+    font-weight: bold;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: #f1f1f1;
+      color: #b000d3;
+    }
+  }
 }
