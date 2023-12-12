@@ -10,76 +10,83 @@ html {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(./bg.jpg);
+  background: rgb(73, 40, 214);
+  background: linear-gradient(90deg, rgb(73, 40, 214) 0%, rgb(88, 9, 121) 50%, rgb(37, 14, 130) 100%);
   color: #ffffff;
   text-align: center;
 }
 
-h1 {
-  color: #b000d3;
-  font-size: 3.6rem;
-  margin: 3rem 0;
+.interface {
+  width: 100%;
+  height: 100vh;
 }
-
-section {
+.interface h1 {
+  color: #fff;
+  font-size: 4.2rem;
+  padding: 3rem 0;
+}
+.interface section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0 auto;
-  width: 30%;
-  padding: 2rem 0;
-  border: 2px solid #b000d3;
-  border-radius: 1rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  width: 50%;
+  padding: 8% 0;
+  border: 0.5rem solid #fff;
+  border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.25);
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #b000d3;
+  color: #fff;
   font-weight: bold;
 }
-section .dropdown {
+.interface section .dropdown {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-section .dropdown select {
-  font-size: 1.8rem;
+.interface section .dropdown select {
+  font-size: 2.6rem;
   margin-bottom: 0.5rem;
   color: #b000d3;
-  border: 2px solid #b000d3;
   border-radius: 1rem;
   font-weight: bold;
   outline: none;
 }
-section button {
-  font-size: 2rem;
-  margin: 0 auto;
-  margin-top: 1rem;
-  padding: 1rem;
-  color: #ffffff;
-  background-color: #b000d3;
+.interface section button {
+  font-size: 2.6rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  color: #b000d3;
   font-weight: bold;
   border-radius: 1rem;
   outline: none;
   border: none;
 }
-section button:hover {
+.interface section button:hover {
   cursor: pointer;
-  background-color: #ffffff;
-  color: #b000d3;
+  color: #ffffff;
+  background-color: #b000d3;
 }
-section .rating_slider {
+.interface section .rating_slider,
+.interface section .price_slider {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
   align-items: center;
 }
-section .rating_slider p {
-  font-size: 2rem;
-  color: #b000d3;
+.interface section .rating_slider p,
+.interface section .price_slider p {
+  font-size: 2.6rem;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -91,15 +98,22 @@ section .rating_slider p {
   grid-template-columns: 1fr 1fr 1fr;
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #b000d3;
+  color: #fff;
   font-weight: bold;
 }
 .result .card {
-  background-color: #fff;
-  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 0.5rem solid #fff;
+  border-radius: 3rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.result .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
 }
 .result .card .container {
   display: flex;
@@ -110,20 +124,25 @@ section .rating_slider p {
 }
 .result .card .container a {
   text-decoration: none;
-  color: #b000d3;
+  color: #fff;
   font-weight: bold;
   font-size: 2rem;
 }
 .result .card .container a:hover {
   text-decoration: underline;
 }
+.result .card .container p {
+  font-size: 2.4rem;
+  color: #fff;
+  font-weight: bold;
+}
 .result h4 {
   font-size: 1.8rem;
 }
 
-p {
-  font-size: 2rem;
-  color: #b000d3;
+.result_number {
+  font-size: 2.6rem;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -146,7 +165,21 @@ p {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: 0.3rem solid #b000d3;
+  border: 0.5rem solid #fff;
   border-top-color: transparent;
   animation: spin 1s linear infinite;
+}
+
+@media (max-width: 1025px) {
+  .result {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .interface section {
+    width: 80%;
+  }
+  .result {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=style.css.map */

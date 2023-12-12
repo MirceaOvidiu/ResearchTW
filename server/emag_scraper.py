@@ -6,28 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import selenium.common.exceptions
 
 
-# this is just for testing
-def choose_category():
-    category = input("Choose a category: ")
-    if category == "phones":
-        return "https://www.emag.ro/telefoane-mobile/"
-    elif category == "laptops":
-        return "https://www.emag.ro/laptopuri/"
-    elif category == "tvs":
-        return "https://www.emag.ro/televizoare/"
-    elif category == "headphones":
-        return "https://www.emag.ro/casti-pc/"
-    else:
-        print("Invalid category")
-        return None
-
-
 # main scraping function
 def scrape(url, base_rating=4.5):
-    driver = webdriver.Chrome(keep_alive=True)
-
     options = Options()
     options.add_argument("--incognito")
+    options.add_argument("--headless")
+
+    driver = webdriver.Chrome(keep_alive=True, options=options)
 
     driver.get(url)
 
@@ -42,7 +27,7 @@ def scrape(url, base_rating=4.5):
 
     for page in range(1, total_pages + 1):
         print(f"====================PAGE {page}=====================")
-        driver.get(url + "p" + str(page) + "/")
+        driver.get(url + "p" + str(page) + "/c")
         try:
             WebDriverWait(driver, 2).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "average-rating"))
@@ -89,9 +74,3 @@ def scrape(url, base_rating=4.5):
             continue
     print(f"Found {len(products_list)} products")
     return products_list
-
-
-if __name__ == "__main__":
-    url = choose_category()
-    if url:
-        scrape(url)
