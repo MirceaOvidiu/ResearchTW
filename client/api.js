@@ -16,8 +16,11 @@ let option;
 let max_price;
 const page = main.innerHTML;
 
-input_rating.addEventListener("change", () => {
-  rating = input_rating.value;
+span_price.innerHTML = input_price.value;
+span_rating.innerHTML = input_rating.value;
+
+input_rating.addEventListener("input", (e) => {
+  rating = e.target.value;
   span_rating.innerHTML = rating;
 });
 
@@ -26,8 +29,8 @@ select.addEventListener("change", () => {
   console.log(option);
 });
 
-input_price.addEventListener("change", () => {
-  max_price = input_price.value;
+input_price.addEventListener("input", (e) => {
+  max_price = e.target.value;
   span_price.innerHTML = max_price;
 });
 
