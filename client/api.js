@@ -7,6 +7,7 @@ const span_price = document.querySelector(".price");
 const main = document.querySelector("main");
 const loading = document.querySelector("#loading");
 const result = document.querySelector(".result");
+const number = document.querySelector(".result_number");
 
 // !values
 
@@ -25,6 +26,7 @@ input_rating.addEventListener("input", (e) => {
 
 select.addEventListener("change", () => {
   option = select.value;
+  console.log(option);
 });
 
 input_price.addEventListener("input", (e) => {
@@ -34,7 +36,9 @@ input_price.addEventListener("input", (e) => {
 
 button.addEventListener("click", () => {
   main.style.display = "none";
+  number.innerHTML = "";
   loading.style.display = "flex";
+  loading.style.gap = "1rem";
   result.innerHTML = "";
   result;
   axios
@@ -60,7 +64,6 @@ const sort = (data) => {
     }
   });
 
-  number = document.querySelector(".result_number");
   number.innerHTML = result.length + " products found";
   return result;
 };

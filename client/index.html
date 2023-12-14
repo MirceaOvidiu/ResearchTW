@@ -9,65 +9,67 @@
   </head>
 
   <body>
-    <h1>Welcome to EmagWizard</h1>
-    <main class="display">
-      <section>
-        <div class="dropdown">
-          <label for="categories">Scrape for:</label>
-          <select name="categories" class="categories" id="areaSelect">
-            <option value="default" disabled>Choose category</option>
-            <option value="telefoane-mobile">Phones</option>
-            <option value="laptopuri">Laptops</option>
-            <option value="tablete">Tablets</option>
-            <option value="smartwatch">Smartwatches</option>
-            <option value="casti-pc">Headphones</option>
-            <option value="console-hardware">Consoles</option>
-            <option value="televizoare">TV</option>
-            <option value="masini-spalat-rufe">Washing Machines</option>
-            <option value="masini-spalat-vase">Dishwashers</option>
-            <option value="frigidere">Fridges</option>
-            <option value="cuptoare-microunde">Microwaves</option>
-            <option value="cuptoare-incorporabile">Ovens</option>
-            <option value="aspiratoare">Vacuum Cleaners</option>
-            <option value="espressoare">Espresso Machines</option>
-          </select>
-        </div>
+    <div class="interface">
+      <h1>Welcome to EmagWizard</h1>
+      <main class="display">
+        <section>
+          <div class="dropdown">
+            <label for="categories">Scrape for:</label>
+            <select name="categories" class="categories" id="areaSelect">
+              <option value="default" disabled selected hidden>
+                Choose category
+              </option>
+              <option value="telefoane-mobile">Phones</option>
+              <option value="laptopuri">Laptops</option>
+              <option value="tablete">Tablets</option>
+              <option value="smartwatch">Smartwatches</option>
+              <option value="casti-pc">Headphones</option>
+              <option value="console-hardware">Consoles</option>
+              <option value="televizoare">TV</option>
+              <option value="masini-spalat-rufe">Washing Machines</option>
+              <option value="masini-spalat-vase">Dishwashers</option>
+              <option value="frigidere">Fridges</option>
+              <option value="cuptoare-microunde">Microwaves</option>
+              <option value="cuptoare-incorporabile">Ovens</option>
+              <option value="aspiratoare">Vacuum Cleaners</option>
+              <option value="espressoare">Espresso Machines</option>
+            </select>
+          </div>
 
-        <div class="rating_slider">
-          <label for="slider">Choose your rating:</label>
-          <p class="rating"></p>
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value="1"
-            step="0.1"
-            class="slider"
-          />
-        </div>
+          <div class="rating_slider">
+            <label for="slider">Choose your rating:</label>
+            <p class="rating"></p>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              value="1"
+              step="0.1"
+              class="slider"
+            />
+          </div>
 
-        <div class="price_slider">
-          <label for="price">Choose your maximum price:</label>
-          <p class="price"></p>
+          <div class="price_slider">
+            <label for="price">Choose your maximum price:</label>
+            <p class="price"></p>
 
-          <input
-            type="range"
-            min="0"
-            max="15000"
-            step="10"
-            value="0"
-            class="slider_pret"
-          />
-        </div>
-        <button>Start scraping</button>
-      </section>
 
-      <p class="result_number"></p>
-      <div class="result"></div>
-    </main>
+            <input
+              type="range"
+              min="0"
+              max="15000"
+              step="10"
+              class="slider_pret"
+            />
+          </div>
+          <button>Start scraping</button>
+        </section>
+      </main>
 
-    <h1 id="loading">Loading</h1>
-
+      <h1 id="loading">Loading</h1>
+    </div>
+    <p class="result_number"></p>
+    <div class="result"></div>
     <script src="./api.js"></script>
   </body>
 </html>

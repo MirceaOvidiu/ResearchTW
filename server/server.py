@@ -20,7 +20,7 @@ def index():
     rating = float(request.json["rating"])
     print(category)
 
-    url = "https://www.emag.ro/search/" + category + "/"
+    url = "https://www.emag.ro/" + category + "/"
     products = emag_scraper.scrape(url, rating)
     return Response(json.dumps(products), mimetype="application/json")
 
