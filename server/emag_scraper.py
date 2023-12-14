@@ -24,7 +24,7 @@ def scrape(url, base_rating=4.5):
     total_pages = round(total_prod / prod_one_page)
 
     products_list = []
-
+    print(total_pages)
     for page in range(1, total_pages + 1):
         print(f"====================PAGE {page}=====================")
         driver.get(url + "p" + str(page) + "/c")
